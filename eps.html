@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible Rows</title>
+    <style>
+        .hidden-row {
+            display: none;
+        }
+
+        .collapsible-row:hover {
+            cursor: pointer;
+            background-color: #f2f2f2;
+        }
+
+        .collapsible-row:hover .arrow {
+            transform: rotate(90deg);
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .hidden-content {
+            background-color: skyblue;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const collapsibleRows = document.querySelectorAll(".collapsible-row");
+
+            collapsibleRows.forEach(function (row) {
+                row.addEventListener("click", function () {
+                    this.nextElementSibling.classList.toggle("hidden-row");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="https://www.yoyaleducation.com/wp-content/uploads/2022/06/eps-topik.png" alt="done" width="500" height="250">
+    <br><td><small>Police Report Reference No: 21****/2023/B</small></td>
+      <br><td><small>Admission No: 500*****</small></td>
+      <br><td><small>Computer No: 11</small></td>
+      <br><th><small>Medical Reports</small></th>
+      <img src="https://static.vecteezy.com/system/resources/previews/017/177/933/non_2x/round-check-mark-symbol-with-transparent-background-free-png.png" alt="done" width="15" height="15">
+<br><th><small>Police Report & File</small></th>
+      <img src="https://static.vecteezy.com/system/resources/previews/017/177/933/non_2x/round-check-mark-symbol-with-transparent-background-free-png.png" alt="done" width="15" height="15">
+    <br><br><table>
+        <tr class="collapsible-row">
+            <td>Addmison Issued</td>
+            <td><span class="arrow"><center><img src="https://static.vecteezy.com/system/resources/previews/015/337/677/non_2x/transparent-search-icon-free-png.png" alt="done" width="30" height="30"></center></span></td>
+        </tr>
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">05 February 2023</td>
+        </tr>
+        <tr class="collapsible-row">
+            <td>EPS Topik Exam</td>
+            <td><span class="arrow"><center><img src="https://static.vecteezy.com/system/resources/previews/015/337/677/non_2x/transparent-search-icon-free-png.png" alt="done" width="30" height="30"></center></span></td><th>Topik Score</th>
+    <th>Skill Score</th>
+    <th>Final Score</th>
+    
+        </tr>
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">13 September 2023</td>
+        </tr>
+        
+        <tr class="collapsible-row">
+            <td>Skill Test</td>
+            <td><span class="arrow"><center><img src="https://static.vecteezy.com/system/resources/previews/015/337/677/non_2x/transparent-search-icon-free-png.png" alt="done" width="30" height="30"></center></span></td>
+      <td>87.5</td>
+      <td>78.6</td>
+      <td>166.1</td>
+        </tr>
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">23 November 2023</td>
+        </tr>
+        <tr class="collapsible-row">
+            <td>Medical Test</td>
+            <td><span class="arrow"><center><img src="https://static.vecteezy.com/system/resources/previews/015/337/677/non_2x/transparent-search-icon-free-png.png" alt="done" width="30" height="30"></center></span></td>
+        </tr>
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">17 December 2023</td>
+        </tr>
+        <tr class="collapsible-row">
+            <td>Interview</td>
+            <td><span class="arrow"><center><img src="https://static.vecteezy.com/system/resources/previews/015/337/677/non_2x/transparent-search-icon-free-png.png" alt="done" width="30" height="30"></center></span></td>
+        </tr>
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">21 December 2023</td>
+        </tr>
+        
+        <tr class="hidden-row">
+            <td colspan="2" class="hidden-content">13 September 2023</td>
+        </tr>
+        <tr>
+      <td>EPS Topik</td></td>
+      <td>19 February 2024</td>
+      
+      <td><b>Pass</b></td>
+      
+    </tr>
+    <tr>
+      <td>Job Seekers Rooster Forwarding Date</td></td>
+      <td>20 February 2024</td>
+      
+      <td><b>Send</b></td>
+      
+    </tr>
+    <tr>
+       <td>Job Seekers Rooster Approval  Date</td>
+       <td>-</td>
+       <td>-</td>
+    </tr>
+    <tr>
+      <td>Job Search Progress</td></td>
+      <td>-</td>
+      <td>-</td>
+       </tr>
+      <tr>
+          <td>Employment Permit Issuance</td>
+          <td>-</td>
+      <td>-</td>
+      </tr>
+      <tr>
+          <td>Standard Labor Contract Forwarding</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+      <tr>
+          <td>Standard Labor Contract Signing</td> <td>-</td>
+       <td>-</td>
+      </tr>
+      <tr>
+          <td>CCVI Issuance</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+      </tr>
+      <tr>
+          <td>Tentative Entry Date</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+      </tr>
+      <tr>
+          <td>Actual Entry Date</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+      </tr>
+      <tr>
+          <td>Employment Training</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+      </tr>
+      <tr>
+          <td>Assigned To Work</td>
+           <td>-</td>
+       <td>-</td>
+      </tr>
+    </table>
+</body>
+</html>

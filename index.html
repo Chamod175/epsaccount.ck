@@ -3,168 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" 
-          href="style.css" />
-    <title>South-Korea
-Employment Agreement Essentials</title>
+    <title>Foreign Worker Service</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: White;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .banner {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
         .container {
-            width: 80%;
-            margin: 20px auto;
             background-color: #fff;
-            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 320px;
+            transition: opacity 1s ease-in-out;
         }
-        .header {
-            text-align: left;
-            margin-bottom: 20px;
+        .container.hidden {
+            opacity: 0;
         }
-        .header h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: #555;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #e1e2ed;
-        }
-        td[colspan="3"] {
-            font-weight: bold;
-        }
-        button {
-            margin: 2px;
-            padding: 5px 10px;
-            background-color: #0431B4;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .miscellaneous {
+        .form-container {
+            background-color: #FFF1C4;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
+        }
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #555;
+        }
+        .links {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .links a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .membership-service {
             margin-top: 20px;
-            border-top: 2px solid #000;
+        }
+        .membership-service h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .membership-service ul {
+            list-style: none;
+            padding: 0;
+        }
+        .membership-service ul li {
+            margin-bottom: 5px;
+        }
+        .membership-service ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .membership-service ul li a:hover {
+            text-decoration: underline;
+        }
+        .certification {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .certification button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .certification button:hover {
+            background-color: #555;
+        }
+        .certification img {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-<div class="banner">
-        <img src="https://www.eps.go.kr/eo/lang/common/img/sl/88AEADDC988C4553A6FBC86682CBFA0D.eo" alt="Banner Image">
+    
+    <div class="container" id="container">
+        <div class="form-container">
+            <h2>Foreign Worker Service</h2>
+            <div class="form-group">
+                <input type="text" id="userID" placeholder="ID" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="userPW" placeholder="PW" required>
+            </div>
+            <div class="form-group">
+                <button id="loginButton">LOGIN</button>
+            </div>
+            <div class="links">
+                <a href="#">Find ID/PW</a> |
+                <a href="#">Sign up</a>
+            </div>
+        </div>
+        <div class="membership-service">
+            <h3>Membership Service</h3>
+            <ul>
+                <li><a href="#">Employment Agreement Essentials</a></li>
+                <li><a href="#">Score Report</a></li>
+            </ul>
+        </div>
+        <div class="certification">
+            <button id="certificationButton">
+            Certification of Career
+            </button>
+        </div>
     </div>
-    <br><br><div class="header">
-        <h2>View Immigration Progress</h2>
-        <p>If you see the message "No Data" on the EPS website or you want to know how the process is going, please contact the Philippines Overseas Employment Administration (POEA).</p>
-		
-    </div>
+    <script>
+        document.getElementById('certificationButton').addEventListener('click', function() {
+            alert('Please login first');
+        });
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <td>WIKUM DISSANAYAKALAGE CHAMOD KAWSHALYA</td>
-        </tr>
-    </table>
-
-    <table>
-        <tr>
-            <th>NO.</th>
-            <th>Job Seekers Roster Forwarding Date</th>
-            <th>Job Seekers Roster Approval Date</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2024-02-20</td>
-            <td>2024-03-29<br>* Term of Roster Validity: 2024-03-29 ~ 2025-03-28</td>
-        </tr>
-    </table>
-
-    <table>
-        <tr>
-            <th>Procedure</th>
-            <th>Current Progress</th>
-            <th>Date (YYYYMMDD)</th>
-        </tr>
-        <tr>
-            <td>EPS-TOPIK</td>
-            <td>Pass</td>
-            <td>19 February 2024 (2023-11-08)</td>
-        </tr>
-        <tr>
-            <td>Job Seekers Roster Forwarding Date</td>
-            <td>Sent</td>
-            <td>2024-02-20</td>
-        </tr>
-        <tr>
-            <td>Job Seekers Roster Approval Date</td>
-            <td>Approval</td>
-            <td>2024-03-29<br>* Term of Roster Validity: 2024-03-29 ~ 2025-03-28</td>
-        </tr>
-        <tr>
-            <td>Job Search Progress</td>
-            <td><br><br><p hidden><button></button> <button></button> <button></button> <button></button></p></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Employment Permit Issuance</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Standard Labor Contract Forwarding</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Standard Labor Contract Signing</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>CCVI Issuance</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Tentative Entry Date</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Actual Entry Date (To be announced by Sending Agency)</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Work Assignment Date</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-    </table>
-
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const userID = document.getElementById('userID').value;
+            const userPW = document.getElementById('userPW').value;
             
-   
+            // Replace these with the correct credentials
+            const correctID = "chamod100";
+            const correctPW = "chamod100";
+
+            if (userID === correctID && userPW === correctPW) {
+                document.getElementById('container').classList.add('hidden');
+                setTimeout(function() {
+                    window.location.href = "https://chamod175.github.io/epsaccount.ck/"; // Replace with the actual URL
+                }, 1000); // 1 second delay to allow the fade-out effect
+            } else {
+                alert('Invalid ID or Password. Please try again.');
+            }
+        });
+    </script>
 </body>
-	</html>
+</html>

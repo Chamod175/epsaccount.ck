@@ -140,10 +140,7 @@
             <div class="form-group">
                 <button id="loginButton">LOGIN</button>
             </div>
-            <div class="links">
-                <a href="#">Find ID/PW</a> |
-                <a href="#">Sign up</a>
-            </div>
+            
         </div>
         <div class="membership-service">
             <h3>Membership Service</h3>
@@ -154,10 +151,12 @@
         </div>
         <div class="certification">
             <button id="certificationButton">
-            Certification of Career
+                Certification of Career
             </button>
         </div>
     </div>
+    <audio id="successSound" src="success.mp3"></audio>
+    <audio id="failSound" src="fail.mp3"></audio>
     <script>
         document.getElementById('certificationButton').addEventListener('click', function() {
             alert('Please login first');
@@ -168,15 +167,17 @@
             const userPW = document.getElementById('userPW').value;
             
             // Replace these with the correct credentials
-            const correctID = "chamod100";
-            const correctPW = "chamod100";
+            const correctID = "admin";
+            const correctPW = "ck175";
 
             if (userID === correctID && userPW === correctPW) {
                 document.getElementById('container').classList.add('hidden');
+                document.getElementById('successSound').play();
                 setTimeout(function() {
-                    window.location.href = "images/View Immigration Progress.html"; // Replace with the actual URL
-                }, 1000); // 1 second delay to allow the fade-out effect
+                    window.location.href = "https://chamod175.github.io/epsaccount.ck/images/View%20Immigration%20Progress.html"; // Replace with the actual URL
+                }, 1000); // 3 second delay to allow the fade-out effect
             } else {
+                document.getElementById('failSound').play();
                 alert('Invalid ID or Password. Please try again.');
             }
         });

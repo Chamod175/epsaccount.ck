@@ -205,50 +205,56 @@
         </table>
     </div>
 
-    <div class="container">
-        <center><img src="https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg?text=Age+Calculator" alt="Header Image"  class="header-image" width="200" height="100"></center>
-        <h1>Agreement Period Calculator</h1>
-        
-        <table>
-        <td>
-        <label for="dob">Date Of Approval:</label>
-        <input id="dob" type="date" value="2024-03-29" /></td>
+    <div class="container" style="text-align: center;">
+    <center><img src="https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg?text=Age+Calculator" alt="Header Image" class="header-image" width="300" height="200"></center>
+    <h1>Agreement Period Calculator</h1>
 
-        <td><label for="dateNow">Today:</label>
-        <input type="date" id="dateNow" required></td>
-</table>
-        <button onclick="calculateAge()">Calculate</button>
+    <table style="margin: 0 auto;">
+        <tr>
+            <td>
+                <label for="dob">Date Of Approval:</label>
+                <input id="dob" type="date" value="2024-03-29" />
+            </td>
+            <td>
+                <label for="dateNow">Today:</label>
+                <input type="date" id="dateNow" required />
+            </td>
+        </tr>
+    </table>
 
-        <div class="result" id="result"></div>
-    </div>
+    <br><button onclick="calculateAge()">Calculate</button>
 
-    <script>
-        function calculateAge() {
-            const dob = new Date(document.getElementById('dob').value);
-            const dateNow = new Date(document.getElementById('dateNow').value);
+    <div class="result" id="result" style="margin-top: 20px;"></div>
+</div>
 
-            if (isNaN(dob.getTime()) || isNaN(dateNow.getTime())) {
-                document.getElementById('result').innerText = "Please enter valid dates to calculate duration.";
-                return;
-            }
+<script>
+    function calculateAge() {
+        const dob = new Date(document.getElementById('dob').value);
+        const dateNow = new Date(document.getElementById('dateNow').value);
 
-            let years = dateNow.getFullYear() - dob.getFullYear();
-            let months = dateNow.getMonth() - dob.getMonth();
-            let days = dateNow.getDate() - dob.getDate();
-
-            if (days < 0) {
-                months--;
-                days += new Date(dateNow.getFullYear(), dateNow.getMonth(), 0).getDate();
-            }
-
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-
-            document.getElementById('result').innerHTML = `You have been waiting for an agreement for <strong>${years}</strong> years, <strong>${months}</strong> months, and <strong>${days}</strong> days.`;
+        if (isNaN(dob.getTime()) || isNaN(dateNow.getTime())) {
+            document.getElementById('result').innerText = "Please enter valid dates to calculate duration.";
+            return;
         }
-    </script>
+
+        let years = dateNow.getFullYear() - dob.getFullYear();
+        let months = dateNow.getMonth() - dob.getMonth();
+        let days = dateNow.getDate() - dob.getDate();
+
+        if (days < 0) {
+            months--;
+            days += new Date(dateNow.getFullYear(), dateNow.getMonth(), 0).getDate();
+        }
+
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        document.getElementById('result').innerHTML = `You have been waiting for an agreement for <strong>${years}</strong> years, <strong>${months}</strong> months, and <strong>${days}</strong> days.`;
+    }
+</script>
+
 </body>
 
 </html>

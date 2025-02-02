@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,11 +11,10 @@
     <title>South Korea Employment Agreement Essentials</title>
     <style>
         body {
-            font-family: Outfit;
+            font-family: 'Outfit', sans-serif;
             background-color: #f4f4f4;
-            margin: 10px;
-            padding: 10px;
-            
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -30,7 +30,6 @@
         .header {
             text-align: left;
             margin-bottom: 20px;
-            
         }
 
         .header h2 {
@@ -55,7 +54,6 @@
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
-            
         }
 
         th {
@@ -107,6 +105,34 @@
             button {
                 padding: 8px;
             }
+
+            .container {
+                padding: 10px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h2 {
+                font-size: 18px;
+            }
+
+            .header p {
+                font-size: 10px;
+            }
+
+            th,
+            td {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            button {
+                padding: 6px;
+            }
         }
     </style>
 </head>
@@ -114,7 +140,6 @@
 <body>
     <div class="container">
         <div class="header">
-            
             <h2>View Immigration Progress</h2>
             <p>If you see the message "No Data" on the EPS website or you want to know how the process is going, please contact the Sri Lanka Overseas Employment Administration (SLOEA).</p>
         </div>
@@ -206,55 +231,76 @@
     </div>
 
     <div class="container" style="text-align: center;">
-    <center><img src="https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg?text=Age+Calculator" alt="Header Image" class="header-image" width="300" height="200"></center>
-    <h1>Agreement Period Calculator</h1>
+        <center><img src="https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg?text=Age+Calculator" alt="Header Image" class="header-image" width="300" height="200"></center>
+        <h1>Agreement Period Calculator</h1>
+        <label for="start-date">Date Of Approval:</label>
+        <input type="date" id="start-date"value="2024-03-29">
 
-    <table style="margin: 0 auto;">
-        <tr>
-            <td>
-                <label for="dob">Date Of Approval:</label>
-                <input id="dob" type="date" value="2024-03-29" />
-            </td>
-            <td>
-                <label for="dateNow">Today:</label>
-                <input type="date" id="dateNow" required />
-            </td>
-        </tr>
-    </table>
+        <label for="end-date">Today:</label>
+        <input type="date" id="end-date">
 
-    <br><button onclick="calculateAge()">Calculate</button>
+        <label>
+            <input type="checkbox" id="include-end-date"> Include end date in calculation
+        </label>
 
-    <div class="result" id="result" style="margin-top: 20px;"></div>
-</div>
+        <br><br><button onclick="calculateDuration()">Calculate Duration</button>
 
-<script>
-    function calculateAge() {
-        const dob = new Date(document.getElementById('dob').value);
-        const dateNow = new Date(document.getElementById('dateNow').value);
+        <div class="results" id="results" style="display: none;">
+            <p id="years"></p>
+            <p id="months"></p>
+            <p id="days"></p>
+            <p id="total-days"></p>
+        </div>
+    </div>
 
-        if (isNaN(dob.getTime()) || isNaN(dateNow.getTime())) {
-            document.getElementById('result').innerText = "Please enter valid dates to calculate duration.";
-            return;
+    <script>
+        function calculateDuration() {
+            const startDate = new Date(document.getElementById('start-date').value);
+            const endDate = new Date(document.getElementById('end-date').value);
+            const includeEndDate = document.getElementById('include-end-date').checked;
+
+            if (isNaN(startDate) || isNaN(endDate) || startDate > endDate) {
+                alert('Please select valid dates.');
+                return;
+            }
+
+            let adjustedEndDate = new Date(endDate);
+            if (includeEndDate) {
+                adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
+            }
+
+            const diffTime = adjustedEndDate - startDate;
+            const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            const startYear = startDate.getFullYear();
+            const startMonth = startDate.getMonth();
+            const startDay = startDate.getDate();
+
+            const endYear = adjustedEndDate.getFullYear();
+            const endMonth = adjustedEndDate.getMonth();
+            const endDay = adjustedEndDate.getDate();
+
+            let years = endYear - startYear;
+            let months = endMonth - startMonth;
+            let days = endDay - startDay;
+
+            if (days < 0) {
+                months--;
+                days += new Date(endYear, endMonth, 0).getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('years').textContent = `Years: ${years}`;
+            document.getElementById('months').textContent = `Months: ${months}`;
+            document.getElementById('days').textContent = `Days: ${days}`;
+            document.getElementById('total-days').textContent = `Total Days: ${totalDays}`;
         }
-
-        let years = dateNow.getFullYear() - dob.getFullYear();
-        let months = dateNow.getMonth() - dob.getMonth();
-        let days = dateNow.getDate() - dob.getDate();
-
-        if (days < 0) {
-            months--;
-            days += new Date(dateNow.getFullYear(), dateNow.getMonth(), 0).getDate();
-        }
-
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
-
-        document.getElementById('result').innerHTML = `You have been waiting for an agreement for <strong>${years}</strong> years, <strong>${months}</strong> months, and <strong>${days}</strong> days.`;
-    }
-</script>
-
+    </script>
 </body>
 
 </html>

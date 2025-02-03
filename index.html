@@ -13,7 +13,7 @@
             font-family: 'Outfit', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg');
+            background-image: url('');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -106,7 +106,7 @@
         <div>
             <a href="#home" class="active">Home</a>
             <a href="#progress">Progress</a>
-            <a href="#calculator">Calculator</a>
+            <a href="cal.html">Calculator</a>
             <a href="tool2.html">Tool</a>
             <a href="#login">Login</a>
             <a href="#signup">Sign Up</a>
@@ -204,76 +204,7 @@
         
     </div>
 
-    <div class="container" style="text-align: center;">
-        <h1>Agreement Period Calculator</h1>
-        <table>
-            <tr>
-                <td><label for="start-date">Date Of Approval:</label></td>
-                <td><input type="date" id="start-date" value="2024-03-29"></td>
-            </tr>
-            <tr>
-                <td><label for="end-date">Today:</label></td>
-                <td><input type="date" id="end-date"></td>
-            </tr>
-        </table>
-        <label>
-            <input type="checkbox" id="include-end-date"> Include end date in calculation
-        </label>
-
-        <br><br><button onclick="calculateDuration()">Calculate Duration</button>
-
-        <div class="results" id="results" style="display: none;">
-            <p id="years"></p>
-            <p id="months"></p>
-            <p id="days"></p>
-            <p id="total-days"></p>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('end-date').value = new Date().toISOString().split('T')[0];
-        });
-
-        function calculateDuration() {
-            const startDate = new Date(document.getElementById('start-date').value);
-            const endDate = new Date(document.getElementById('end-date').value);
-            const includeEndDate = document.getElementById('include-end-date').checked;
-
-            if (isNaN(startDate) || isNaN(endDate) || startDate > endDate) {
-                alert('Please select valid dates.');
-                return;
-            }
-
-            let adjustedEndDate = new Date(endDate);
-            if (includeEndDate) {
-                adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);
-            }
-
-            const diffTime = adjustedEndDate - startDate;
-            const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-            let years = adjustedEndDate.getFullYear() - startDate.getFullYear();
-            let months = adjustedEndDate.getMonth() - startDate.getMonth();
-            let days = adjustedEndDate.getDate() - startDate.getDate();
-
-            if (days < 0) {
-                months--;
-                days += new Date(adjustedEndDate.getFullYear(), adjustedEndDate.getMonth(), 0).getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('years').textContent = `Years: ${years}`;
-            document.getElementById('months').textContent = `Months: ${months}`;
-            document.getElementById('days').textContent = `Days: ${days}`;
-            document.getElementById('total-days').textContent = `Total Days: ${totalDays}`;
-        }
-    </script>
-
+    
 </body>
 
 </html>

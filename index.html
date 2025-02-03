@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,35 +11,51 @@
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-image: url('https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(4, 49, 180, 0.9);
+            overflow: hidden;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-        }
-
-        .header {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .header h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: #555;
         }
 
         table {
@@ -49,8 +64,7 @@
             margin-bottom: 20px;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
@@ -60,19 +74,13 @@
             background-color: #e1e2ed;
         }
 
-        td[colspan="3"] {
-            font-weight: bold;
-        }
-
         button {
-            margin: 2px;
             padding: 10px;
             background-color: #0431B4;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 4px;
-            width: 100%;
             transition: background-color 0.3s;
         }
 
@@ -80,54 +88,9 @@
             background-color: #0056b3;
         }
 
-        .miscellaneous {
-            text-align: center;
-            margin-top: 20px;
-            border-top: 2px solid #000;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .header h2 {
-                font-size: 20px;
-            }
-
-            .header p {
-                font-size: 12px;
-            }
-
-            th,
-            td {
-                font-size: 12px;
-                padding: 8px;
-            }
-
-            button {
-                padding: 8px;
-            }
-
-            .container {
-                padding: 10px;
-            }
-
-            table {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h2 {
-                font-size: 18px;
-            }
-
-            .header p {
-                font-size: 10px;
-            }
-
-            th,
-            td {
-                font-size: 10px;
-                padding: 6px;
+            .navbar {
+                flex-direction: column;
             }
 
             button {
@@ -138,11 +101,21 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>View Immigration Progress</h2>
-            <p>If you see the message "No Data" on the EPS website or you want to know how the process is going, please contact the Sri Lanka Overseas Employment Administration (SLOEA).</p>
+    <div class="navbar">
+        <div class="logo">Employment Tracker</div>
+        <div>
+            <a href="#home" class="active">Home</a>
+            <a href="#progress">Progress</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#contact">Contact</a>
+            <a href="#login">Login</a>
+            <a href="#signup">Sign Up</a>
         </div>
+    </div>
+
+    <div class="container">
+        <h2>View Immigration Progress</h2>
+        <p>If you see the message "No Data" on the EPS website, please contact the Sri Lanka Overseas Employment Administration (SLOEA).</p>
 
         <table>
             <tr>
@@ -151,7 +124,7 @@
             </tr>
         </table>
 
-        <table>
+<table>
             <tr>
                 <th>NO.</th>
                 <th>Job Seekers Roster Forwarding Date</th>
@@ -228,17 +201,21 @@
                 <td>-</td>
             </tr>
         </table>
+        
     </div>
 
     <div class="container" style="text-align: center;">
-        <center><img src="https://asiasociety.org/sites/default/files/styles/1200w/public/K/korean-flag.jpg?text=Age+Calculator" alt="Header Image" class="header-image" width="300" height="200"></center>
         <h1>Agreement Period Calculator</h1>
-        <label for="start-date">Date Of Approval:</label>
-        <input type="date" id="start-date"value="2024-03-29">
-
-        <label for="end-date">Today:</label>
-        <input type="date" id="end-date">
-
+        <table>
+            <tr>
+                <td><label for="start-date">Date Of Approval:</label></td>
+                <td><input type="date" id="start-date" value="2024-03-29"></td>
+            </tr>
+            <tr>
+                <td><label for="end-date">Today:</label></td>
+                <td><input type="date" id="end-date"></td>
+            </tr>
+        </table>
         <label>
             <input type="checkbox" id="include-end-date"> Include end date in calculation
         </label>
@@ -254,6 +231,10 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('end-date').value = new Date().toISOString().split('T')[0];
+        });
+
         function calculateDuration() {
             const startDate = new Date(document.getElementById('start-date').value);
             const endDate = new Date(document.getElementById('end-date').value);
@@ -272,23 +253,14 @@
             const diffTime = adjustedEndDate - startDate;
             const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-            const startYear = startDate.getFullYear();
-            const startMonth = startDate.getMonth();
-            const startDay = startDate.getDate();
-
-            const endYear = adjustedEndDate.getFullYear();
-            const endMonth = adjustedEndDate.getMonth();
-            const endDay = adjustedEndDate.getDate();
-
-            let years = endYear - startYear;
-            let months = endMonth - startMonth;
-            let days = endDay - startDay;
+            let years = adjustedEndDate.getFullYear() - startDate.getFullYear();
+            let months = adjustedEndDate.getMonth() - startDate.getMonth();
+            let days = adjustedEndDate.getDate() - startDate.getDate();
 
             if (days < 0) {
                 months--;
-                days += new Date(endYear, endMonth, 0).getDate();
+                days += new Date(adjustedEndDate.getFullYear(), adjustedEndDate.getMonth(), 0).getDate();
             }
-
             if (months < 0) {
                 years--;
                 months += 12;
@@ -301,6 +273,7 @@
             document.getElementById('total-days').textContent = `Total Days: ${totalDays}`;
         }
     </script>
+
 </body>
 
 </html>

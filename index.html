@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +12,35 @@
             font-family: 'Outfit', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('');
+            background-image: url('background.jpg'); /* Ensure correct background */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            color: #333;
         }
 
-        /* Navigation Bar Styles */
         .navbar {
             background-color: rgba(4, 49, 180, 0.9);
-            overflow: hidden;
-            padding: 10px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .logo {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
             color: white;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 12px 16px;
+            padding: 10px 15px;
             font-size: 16px;
-            transition: background-color 0.3s;
+            transition: background 0.3s;
+            border-radius: 4px;
         }
 
         .navbar a:hover {
@@ -52,59 +51,65 @@
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            background: white;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
 
         th {
-            background-color: #e1e2ed;
+            background: #e5e5e5;
+            color: black;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
         }
 
         button {
-            padding: 10px;
-            background-color: #0431B4;
+            padding: 10px 15px;
+            background: #0431B4;
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            transition: 0.3s;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background: #0056b3;
         }
 
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
+                text-align: center;
             }
 
-            button {
-                padding: 6px;
+            .container {
+                padding: 15px;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="navbar">
         <div class="logo">Employment Tracker</div>
         <div>
-            <a href="#home" class="active">Home</a>
+            <a href="#home">Home</a>
             <a href="#progress">Progress</a>
             <a href="cal.html">Calculator</a>
         </div>
@@ -121,7 +126,7 @@
             </tr>
         </table>
 
-<table>
+        <table>
             <tr>
                 <th>NO.</th>
                 <th>Job Seekers Roster Forwarding Date</th>
@@ -130,7 +135,7 @@
             <tr>
                 <td>1</td>
                 <td>2024-02-20</td>
-                <td>2024-03-29<br>* Term of Roster Validity: 2024-03-29 ~ 2025-03-28</td>
+                <td>2024-03-29<br><small>Term of Roster Validity: 2024-03-29 ~ 2025-03-28</small></td>
             </tr>
         </table>
 
@@ -153,55 +158,49 @@
             <tr>
                 <td>Job Seekers Roster Approval Date</td>
                 <td>Approval</td>
-                <td>2024-03-29<br>* Term of Roster Validity: 2024-03-29 ~ 2025-03-28</td>
+                <td>2024-03-29<br><small>Term of Roster Validity: 2024-03-29 ~ 2025-03-28</small></td>
             </tr>
             <tr>
                 <td>Job Search Progress</td>
-                <td>
-                    <p hidden><button></button> <button></button> <button></button> <button></button></p>
-                </td>
-                <td></td>
+                <td>Pending</td>
+                <td>-</td>
             </tr>
             <tr>
                 <td>Employment Permit Issuance</td>
-                <td>-</td>
+                <td>Not Started</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>Standard Labor Contract Forwarding</td>
-                <td>-</td>
+                <td>Not Started</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>Standard Labor Contract Signing</td>
-                <td>-</td>
+                <td>Not Started</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>CCVI Issuance</td>
-                <td>-</td>
+                <td>Not Started</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>Tentative Entry Date</td>
-                <td>-</td>
+                <td>Not Announced</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>Actual Entry Date (To be announced by Sending Agency)</td>
-                <td>-</td>
+                <td>Not Announced</td>
                 <td>-</td>
             </tr>
             <tr>
                 <td>Work Assignment Date</td>
-                <td>-</td>
+                <td>Not Assigned</td>
                 <td>-</td>
             </tr>
         </table>
-        
     </div>
-
-    
 </body>
-
 </html>

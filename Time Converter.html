@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Time Converter with Images</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            flex-wrap: wrap;
+        }
+
+        .clock-container {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        .clock-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #333;
+        }
+
+        .clock {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid #333;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .center {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            border-radius: 4px;
+        }
+
+        .hour-hand {
+            width: 5px;
+            height: 25%;
+            background: #333;
+            z-index: 3;
+        }
+
+        .minute-hand {
+            width: 3px;
+            height: 35%;
+            background: #666;
+            z-index: 2;
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 40%;
+            background: #e74c3c;
+            z-index: 1;
+        }
+
+        .number {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform: rotate(var(--rotation));
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .number span {
+            display: inline-block;
+            transform: rotate(calc(-1 * var(--rotation)));
+        }
+
+        .clock-label {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .digital-time {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Current Time Clock -->
+    <div class="clock-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg" alt="Current Time" class="clock-image">
+        <div class="clock-label">Current Time</div>
+        <div class="clock" id="current-clock">
+            <div class="center"></div>
+            <div id="current-hour" class="hand hour-hand"></div>
+            <div id="current-minute" class="hand minute-hand"></div>
+            <div id="current-second" class="hand second-hand"></div>
+        </div>
+        <div class="digital-time" id="current-digital"></div>
+    </div>
+
+    <!-- Future Time Clock -->
+    <div class="clock-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_South_Korea.png" alt="Future Time" class="clock-image">
+        <div class="clock-label">in South Korea is</div>
+        <div class="clock" id="future-clock">
+            <div class="center"></div>
+            <div id="future-hour" class="hand hour-hand"></div>
+            <div id="future-minute" class="hand minute-hand"></div>
+            <div id="future-second" class="hand second-hand"></div>
+        </div>
+        <div class="digital-time" id="future-digital"></div>
+    </div>
+
+    <script>
+        // Create clock numbers for both clocks
+        document.querySelectorAll('.clock').forEach(clock => {
+            for(let i = 1; i <= 12; i++) {
+                const number = document.createElement('div');
+                number.className = 'number';
+                number.style.setProperty('--rotation', `${i * 30}deg`);
+                number.innerHTML = `<span>${i}</span>`;
+                clock.appendChild(number);
+            }
+        });
+
+        function updateClocks() {
+            const now = new Date();
+            const future = new Date(now.getTime() + (3 * 60 * 60 * 1000) + (30 * 60 * 1000));
+
+            // Update Current Clock
+            updateClock(now, 'current');
+            document.getElementById('current-digital').textContent = 
+                now.toLocaleTimeString();
+
+            // Update Future Clock
+            updateClock(future, 'future');
+            document.getElementById('future-digital').textContent = 
+                future.toLocaleTimeString();
+        }
+
+        function updateClock(time, prefix) {
+            const hours = time.getHours() % 12;
+            const minutes = time.getMinutes();
+            const seconds = time.getSeconds();
+
+            const hourDeg = (hours * 30) + (minutes * 0.5) + 90;
+            const minuteDeg = (minutes * 6) + (seconds * 0.1) + 90;
+            const secondDeg = (seconds * 6) + 90;
+
+            document.getElementById(`${prefix}-hour`).style.transform = `rotate(${hourDeg}deg)`;
+            document.getElementById(`${prefix}-minute`).style.transform = `rotate(${minuteDeg}deg)`;
+            document.getElementById(`${prefix}-second`).style.transform = `rotate(${secondDeg}deg)`;
+        }
+
+        // Initial update and set interval
+        updateClocks();
+        setInterval(updateClocks, 1000);
+    </script>
+</body>
+</html>

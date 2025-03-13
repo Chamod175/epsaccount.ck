@@ -3,120 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>View Immigration Progress</title>
+	  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <title>South Korea Employment Agreement Essentials</title>
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('background.jpg'); /* Ensure correct background */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #333;
-        }
-
-        .navbar {
-            background-color: rgba(4, 49, 180, 0.9);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .logo {
-            font-weight: bold;
-            font-size: 22px;
-            color: white;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            transition: background 0.3s;
-            border-radius: 4px;
-        }
-
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background: #e5e5e5;
-            color: black;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        button {
-            padding: 10px 15px;
-            background: #0431B4;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .container {
-                padding: 15px;
-            }
-        }
-    </style>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo">Employment Tracker</div>
-        <div>
-            <a href="#home">Home</a>
-            <a href="https://chamod175.github.io/Korean-Live-Class---Online-Examination-System/">Online-Examination-System</a>
-            <a href="Agreement Period Calculator.html">Calculator</a>
-        </div>
-    </div>
-
     <div class="container">
-        <h2>View Immigration Progress</h2>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Member</a></li>
+                <li><a href="Time Converter.html">Time Converter</a></li>
+               <li><a href="Calculator.html">Agreement Period Calculator</a></li>
+                <li><a href="https://chamod175.github.io/Korean-Live-Class---Online-Examination-System/">Online-Examination-System</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="sidebar">
+                <img src="https://tethys.org/wp-content/uploads/2019/02/icon-members.png" alt="Member" width="100" height="100">
+                <h2>Member</h2>
+                <ul>
+                    <li><a href="#">View EPS-TOPIK Score</a></li>
+                    <li><a href="#" class="active">View Immigration Progress</a></li>
+                    <li><a href="#">Issue Certificate of Career</a></li>
+                    <li><a href="#">Check the Status of the Returned Worker</a></li>
+                    <li><a href="#">Report Sending Corruption</a></li>
+                    <li><a href="#">My Page</a></li>
+                    <li><a href="#">Privacy Policy View</a></li>
+                    <li><a href="#">Change PW/Delete ID</a></li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <div class="breadcrumb">
+                    <a href="#">Home</a> >
+                    <a href="#">Member</a> >
+                    <span>View Immigration Progress</span>
+                </div>
+                <h2>View Immigration Progress</h2>
         <p>If you see the message "No Data" on the EPS website, please contact the Sri Lanka Overseas Employment Administration (SLOEA).</p>
 
         <table>
@@ -201,6 +125,9 @@
                 <td>-</td>
             </tr>
         </table>
+            </div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

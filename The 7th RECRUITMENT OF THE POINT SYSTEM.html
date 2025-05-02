@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Test Details & Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .exit-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .section-title {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            margin: 20px 0 15px 0;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .details-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+            color: #2c3e50;
+        }
+        
+        .detail-value {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .date-display {
+            text-align: right;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #7f8c8d;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .pass-status {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .instructions-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 8px;
+        }
+        
+        .check-another-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            margin: 20px 0;
+            text-decoration: none;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #ecf0f1;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.3rem;
+                padding-right: 40px;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+            }
+            
+            .detail-label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .detail-value {
+                width: 100%;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 8px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="exit-btn" id="exitBtn">Exit</button>
+            <h1>The 7th RECRUITMENT OF THE POINT SYSTEM</h1>
+            <p>MANUFACTURING & FISHERY SECTORS</p>
+        </div>
+        
+        <div class="content">
+            <div class="date-display">Today is: 13/12/2023</div>
+            
+            <div class="section-title">Final Test Results of 7th(7-2) & 8th Point System 2023</div>
+            
+            <div class="details-card">
+                <div class="detail-row">
+                    <div class="detail-label">Index Number :</div>
+                    <div class="detail-value">********</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Skill Exam Index Number :</div>
+                    <div class="detail-value">***************</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Name of the Candidate :</div>
+                    <div class="detail-value">CHAMOD</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Industry :</div>
+                    <div class="detail-value">Manufacturing</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Sub-Industry :</div>
+                    <div class="detail-value"><strong>Assemble</strong></div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Color Vision :</div>
+                    <div class="detail-value">N</div>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>EPS-TOPIK_SCORE</th>
+                        <th>SKILL SCORE</th>
+                        <th>COMPETENCY SCORE</th>
+                        <th>TOTAL SCORE</th>
+                        <th>STATUS</th>
+                    </tr>
+                    <tr>
+                        <td>87.5 (175/200)</td>
+                        <td>78.6</td>
+                        <td>0</td>
+                        <td>166.1</td>
+                        <td class="pass-status">PASS</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="details-card">
+                <div class="detail-row">
+                    <div class="detail-label">Interview Venue :</div>
+                    <div class="detail-value">Migrant Resource Center - Central Provincial No.18, Heerassagala Road, Mulgampala, Kandy.</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Interview Date & Time:</div>
+                    <div class="detail-value">21-December-2023 at 9.00 a.m</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Medical Venue :</div>
+                    <div class="detail-value">Durdans Hospital, 3 Alfred Place, Colombo 03</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Medical Date :</div>
+                    <div class="detail-value">17-December-2023 at 7.00 a.m</div>
+                </div>
+            </div>
+			
+			<div class="details-card">
+                
+                
+                
+                <div class="section-title">Re-Register on the Korean website for the second year</div>
+                <div class="detail-row">
+                    <div class="detail-label">Medical Venue :</div>
+                    <div class="detail-value">The Lanka Hospitals Corporation PLC</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Medical Date :</div>
+                    <div class="detail-value">2025.04.04 at 08.00 a.m</div>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <div class="details-card">
+                <div class="detail-row">
+                    <div class="detail-label">Exam No :</div>
+                    <div class="detail-value">********</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Name of the Candidate :</div>
+                    <div class="detail-value">CHAMOD</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Gender :</div>
+                    <div class="detail-value">Male</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Industry :</div>
+                    <div class="detail-value">Manufacturing > Assemble</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Test Date:</div>
+                    <div class="detail-value">13-September-2023</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Session:</div>
+                    <div class="detail-value">1st (09:30)</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Test Room:</div>
+                    <div class="detail-value">CBT Test room-Sri Lanka</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Test Venue :</div>
+                    <div class="detail-value">No. 205, Borella Road, Depanama, Pannipitiya.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2023 Recruitment System. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('exitBtn').addEventListener('click', function() {
+            if(confirm('Are you sure you want to exit?')) {
+                // In a real app, this would close the app or redirect
+                // For demo purposes, we'll just show an alert
+                alert('Application would exit now in a real implementation');
+                // window.close(); // This would work if the window was opened by script
+            }
+        });
+        
+        // Make the page responsive by adjusting font sizes on very small devices
+        function adjustForScreenSize() {
+            const screenWidth = window.innerWidth;
+            const htmlElement = document.documentElement;
+            
+            if (screenWidth < 400) {
+                htmlElement.style.fontSize = '14px';
+            } else {
+                htmlElement.style.fontSize = '16px';
+            }
+        }
+        
+        // Run on load and when window is resized
+        window.addEventListener('load', adjustForScreenSize);
+        window.addEventListener('resize', adjustForScreenSize);
+    </script>
+</body>
+</html>

@@ -5,38 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Song Tag Sheet Maker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2d3436;
+            --light-color: #f8f9fa;
+            --success-color: #00b894;
+            --danger-color: #d63031;
+        }
+        
         body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
         }
+        
         .container {
-            max-width: 100%;
+            max-width: 800px;
             padding: 20px;
-            margin-top: 50px;
+            margin-top: 30px;
         }
-        .content {
-            max-width: 600px;
-            margin: 0 auto;
+        
+        .app-container {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
-        table {
-            width: 100%;
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .app-body {
+            padding: 25px;
+        }
+        
+        .music-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .form-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #5649c0;
+            border-color: #5649c0;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
+        
+        .table {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .table thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .table th {
+            font-weight: 500;
+        }
+        
+        .action-buttons .btn {
+            margin-right: 5px;
+        }
+        
+        .copy-section {
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 8px;
             margin-top: 20px;
         }
-        .music-logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
+        
+        .tag-preview {
+            min-height: 100px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
         }
-        @media (max-width: 767px) {
+        
+        @media (max-width: 768px) {
             .container {
                 padding: 10px;
+                margin-top: 10px;
             }
-            .content {
+            
+            .app-body {
                 padding: 15px;
             }
         }
@@ -44,82 +133,289 @@
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <div class="text-center">
-                <img src="https://png.pngtree.com/element_our/sm/20180415/sm_5ad31d9b53530.png" alt="Music Logo" class="music-logo">
+        <div class="app-container">
+            <div class="app-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3629/3629076.png" alt="Music Logo" class="music-logo">
+                <h1>Song Tag Sheet Maker</h1>
+                <p class="mb-0">Create and manage your music metadata efficiently</p>
             </div>
-            <h2 class="text-center">Song Tag Sheet Maker</h2>
-            <form id="songForm">
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" required>
+            
+            <div class="app-body">
+                <div class="form-section">
+                    <h3><i class="fas fa-music me-2"></i>Song Information</h3>
+                    <form id="songForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter song title" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="artist" class="form-label">Artist <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="artist" placeholder="Enter artist name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="genre" class="form-label">Genre</label>
+                                <select class="form-select" id="genre">
+                                    <option value="">Select genre</option>
+                                    <option>Pop</option>
+                                    <option>Rock</option>
+                                    <option>Hip Hop</option>
+                                    <option>Electronic</option>
+                                    <option>R&B</option>
+                                    <option>Jazz</option>
+                                    <option>Classical</option>
+                                    <option>Country</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="br" class="form-label">Bitrate</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="br" placeholder="320" min="64" max="320">
+                                    <span class="input-group-text">kbps</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="year" class="form-label">Release Date</label>
+                                <input type="date" class="form-control" id="year">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="rl" class="form-label">Record Label</label>
+                            <input type="text" class="form-control" id="rl" placeholder="Enter record label">
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-danger me-md-2" onclick="ClearFields()">
+                                <i class="fas fa-trash-alt me-1"></i> Clear
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="AddRow()">
+                                <i class="fas fa-plus-circle me-1"></i> Add to List
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="artist" class="form-label">Artist</label>
-                    <input type="text" class="form-control" id="artist" required>
+                
+                <div class="copy-section">
+                    <h4><i class="fas fa-clipboard me-2"></i>Tag Preview</h4>
+                    <div class="tag-preview" id="copyText">No song information entered yet.</div>
+                    <button class="btn btn-secondary mt-2" onclick="CopyDetails()">
+                        <i class="fas fa-copy me-1"></i> Copy to Clipboard
+                    </button>
                 </div>
-                <div class="mb-3">
-                    <label for="genre" class="form-label">Genre</label>
-                    <input type="text" class="form-control" id="genre">
+                
+                <div class="mt-4">
+                    <h3><i class="fas fa-list me-2"></i>Song List</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="show">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Artist</th>
+                                    <th>Genre</th>
+                                    <th>Bitrate</th>
+                                    <th>Label</th>
+                                    <th>Year</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                        <button class="btn btn-outline-danger me-md-2" onclick="ClearTable()">
+                            <i class="fas fa-trash me-1"></i> Clear All
+                        </button>
+                        <button class="btn btn-success" onclick="ExportToCSV()">
+                            <i class="fas fa-file-export me-1"></i> Export to CSV
+                        </button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="br" class="form-label">Bitrate</label>
-                    <input type="text" class="form-control" id="br" value="kbps">
-                </div>
-                <div class="mb-3">
-                    <label for="rl" class="form-label">Record Label</label>
-                    <input type="text" class="form-control" id="rl">
-                </div>
-                <div class="mb-3">
-                    <label for="year" class="form-label">Release Date</label>
-                    <input type="date" class="form-control" id="year">
-                </div>
-                <button type="button" class="btn btn-primary w-100" onclick="AddRow()">Create</button>
-                <button type="button" class="btn btn-danger w-100 mt-2" onclick="ClearFields()">Clear</button>
-            </form>
-
-            <textarea id="copyText" class="form-control mt-3" rows="3" readonly></textarea>
-            <button class="btn btn-secondary w-100 mt-2" onclick="CopyDetails()">Copy Details</button>
-
-            <table class="table table-bordered mt-4" id="show">
-                <thead class="table-dark">
-                <tbody></tbody>
-            </table>
+            </div>
         </div>
     </div>
 
     <script>
+        let songCounter = 1;
+        
         function AddRow() {
-            let table = document.getElementById("show").getElementsByTagName('tbody')[0];
-            let row = table.insertRow();
+            // Validate required fields
+            const title = document.getElementById("title").value.trim();
+            const artist = document.getElementById("artist").value.trim();
             
-            let title = document.getElementById("title").value;
-            let artist = document.getElementById("artist").value;
-            let genre = document.getElementById("genre").value;
+            if (!title || !artist) {
+                alert("Title and Artist are required fields!");
+                return;
+            }
+            
+            // Get other values
+            const genre = document.getElementById("genre").value;
             let br = document.getElementById("br").value;
-            let rl = document.getElementById("rl").value;
+            const rl = document.getElementById("rl").value.trim();
             let year = document.getElementById("year").value;
             
-            document.getElementById("copyText").value = `Title: ${title}\nArtist: ${artist}\nGenre: ${genre}\nBitrate: ${br}\nRecord Label: ${rl}\nRelease Date: ${year}`;
+            // Format values
+            br = br ? `${br} kbps` : '';
+            year = year ? new Date(year).getFullYear() : '';
+            
+            // Add to table
+            const table = document.getElementById("show").getElementsByTagName('tbody')[0];
+            const row = table.insertRow();
+            
+            row.innerHTML = `
+                <td>${songCounter++}</td>
+                <td>${title}</td>
+                <td>${artist}</td>
+                <td>${genre || '-'}</td>
+                <td>${br || '-'}</td>
+                <td>${rl || '-'}</td>
+                <td>${year || '-'}</td>
+                <td class="action-buttons">
+                    <button class="btn btn-sm btn-outline-primary" onclick="EditRow(this)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="DeleteRow(this)"><i class="fas fa-trash"></i></button>
+                </td>
+            `;
+            
+            // Update preview
+            UpdatePreview(title, artist, genre, br, rl, year);
+            
+            // Clear form
+            ClearFields();
         }
-
+        
+        function UpdatePreview(title, artist, genre, br, rl, year) {
+            const preview = document.getElementById("copyText");
+            preview.innerHTML = `Title: ${title}\nArtist: ${artist}\nGenre: ${genre}\nBitrate: ${br}\nRecord Label: ${rl}\nRelease Year: ${year}`;
+        }
+        
         function CopyDetails() {
-            let copyText = document.getElementById("copyText");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Details copied to clipboard!");
+            const copyText = document.getElementById("copyText");
+            const textToCopy = copyText.innerText;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Show success feedback
+                const originalText = copyText.innerHTML;
+                copyText.innerHTML = '<span class="text-success">Copied to clipboard!</span>';
+                
+                setTimeout(() => {
+                    copyText.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert("Failed to copy text. Please try again.");
+            });
         }
-
+        
         function ClearFields() {
             document.getElementById("title").value = "";
             document.getElementById("artist").value = "";
             document.getElementById("genre").value = "";
-            document.getElementById("br").value = "kbps";
+            document.getElementById("br").value = "";
             document.getElementById("rl").value = "";
             document.getElementById("year").value = "";
-            document.getElementById("copyText").value = "";
         }
+        
+        function ClearTable() {
+            if (confirm("Are you sure you want to clear all songs?")) {
+                document.getElementById("show").getElementsByTagName('tbody')[0].innerHTML = "";
+                songCounter = 1;
+                document.getElementById("copyText").innerText = "No song information entered yet.";
+            }
+        }
+        
+        function DeleteRow(button) {
+            const row = button.closest('tr');
+            if (confirm("Are you sure you want to delete this song?")) {
+                row.remove();
+                // Renumber remaining rows
+                const rows = document.querySelectorAll("#show tbody tr");
+                rows.forEach((row, index) => {
+                    row.cells[0].textContent = index + 1;
+                });
+                songCounter = rows.length + 1;
+            }
+        }
+        
+        function EditRow(button) {
+            const row = button.closest('tr');
+            const cells = row.cells;
+            
+            // Fill form with row data
+            document.getElementById("title").value = cells[1].textContent;
+            document.getElementById("artist").value = cells[2].textContent;
+            document.getElementById("genre").value = cells[3].textContent === '-' ? '' : cells[3].textContent;
+            
+            const brText = cells[4].textContent;
+            document.getElementById("br").value = brText === '-' ? '' : brText.split(' ')[0];
+            
+            document.getElementById("rl").value = cells[5].textContent === '-' ? '' : cells[5].textContent;
+            
+            const year = cells[6].textContent;
+            if (year !== '-') {
+                const date = new Date(year, 0, 1);
+                document.getElementById("year").value = date.toISOString().split('T')[0];
+            } else {
+                document.getElementById("year").value = '';
+            }
+            
+            // Delete the row
+            row.remove();
+            
+            // Update preview
+            UpdatePreview(
+                cells[1].textContent,
+                cells[2].textContent,
+                cells[3].textContent,
+                cells[4].textContent,
+                cells[5].textContent,
+                cells[6].textContent
+            );
+        }
+        
+        function ExportToCSV() {
+            const rows = document.querySelectorAll("#show tbody tr");
+            if (rows.length === 0) {
+                alert("No songs to export!");
+                return;
+            }
+            
+            let csvContent = "Title,Artist,Genre,Bitrate,Record Label,Year\n";
+            
+            rows.forEach(row => {
+                const cells = row.cells;
+                const rowData = [
+                    `"${cells[1].textContent}"`,
+                    `"${cells[2].textContent}"`,
+                    `"${cells[3].textContent}"`,
+                    `"${cells[4].textContent}"`,
+                    `"${cells[5].textContent}"`,
+                    `"${cells[6].textContent}"`
+                ];
+                csvContent += rowData.join(",") + "\n";
+            });
+            
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "song_tags.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Initialize date to current year
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentDate = new Date();
+            document.getElementById("year").value = currentDate.toISOString().split('T')[0];
+        });
     </script>
 </body>
 </html>
